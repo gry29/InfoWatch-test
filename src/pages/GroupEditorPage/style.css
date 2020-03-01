@@ -1,0 +1,31 @@
+.group-editor-page {
+  display: grid;
+  margin: 8px;
+}
+.group-editor-page__user-selection {
+}
+.group-editor-page__users {
+  margin-right: 4px;
+}
+.group-editor-page__rights {
+  margin-left: 4px;
+  margin-top: 4px;
+}
+.group-editor-page__buttonssave {
+  margin-left: 4px;
+  margin-bottom: 4px;
+}
+.group-editor-page__buttonsadd {
+  margin-left: 4px;
+  padding-bottom: 4px;
+}
+.group-editor-page__buttondel {
+  margin-left: 4px;
+  margin-bottom: 4px;
+}
+
+.group-editor-page__spinner {
+  position: absolute;
+  top: calc(50% - 14px);
+  left: calc(50% - 14px);
+}
