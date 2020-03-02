@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Fetcher from "../../components/Fetcher";
 import { putRight, deleteRight } from "../../resources/right";
+import "./style.css";
 
 class RightPage extends Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class RightPage extends Component {
       showRightForm: false
     };
   }
-
 
   handleSubmit = async event => {
     const form = event.currentTarget;
@@ -51,6 +51,13 @@ class RightPage extends Component {
   render() {
     return (
       <div className="right-page">
+        <Button
+          variant="primary"
+          className="right-page__add-btn"
+          onClick={() => this.openModal()}
+        >
+          Добавить право
+        </Button>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -66,7 +73,7 @@ class RightPage extends Component {
                 <td>{right.rightName}</td>
                 <td>
                   <Button
-                    variant="secondary"
+                    variant="danger"
                     size="sm"
                     onClick={() => this.handleDelete(right.id)}
                   >
@@ -78,13 +85,6 @@ class RightPage extends Component {
           </tbody>
         </Table>
 
-        <Button
-          className="right-page__save-btn"
-          onClick={() => this.openModal()}
-        >
-          Добавить право
-        </Button>
-
         <Modal show={this.state.showRightForm} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Форма добавления права</Modal.Title>
@@ -94,12 +94,7 @@ class RightPage extends Component {
             <Form id="rightForm" onSubmit={this.handleSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Имя права</Form.Label>
-                <Form.Control
-                  size="lg"
-                  name="rightName"
-                  type="text"
-                  required
-                />
+                <Form.Control size="lg" name="rightName" type="text" required />
               </Form.Group>
             </Form>
 

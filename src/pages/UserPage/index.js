@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Fetcher from "../../components/Fetcher";
+import "./style.css";
 
 class UserPage extends Component {
   constructor(props) {
@@ -48,6 +49,13 @@ class UserPage extends Component {
   render() {
     return (
       <div className="user-page">
+        <Button
+          variant="primary"
+          className="user-page__add-btn"
+          onClick={() => this.openModal()}
+        >
+          Добавить пользователя
+        </Button>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -63,7 +71,7 @@ class UserPage extends Component {
                 <td>{user.userName}</td>
                 <td>
                   <Button
-                    variant="secondary"
+                    variant="danger"
                     size="sm"
                     onClick={() => this.handleDelete(user.id)}
                   >
@@ -74,13 +82,6 @@ class UserPage extends Component {
             ))}
           </tbody>
         </Table>
-
-        <Button
-          className="right-page__save-btn"
-          onClick={() => this.openModal()}
-        >
-          Добавить право
-        </Button>
 
         <Modal show={this.state.showRightForm} onHide={this.handleClose}>
           <Modal.Header closeButton>
